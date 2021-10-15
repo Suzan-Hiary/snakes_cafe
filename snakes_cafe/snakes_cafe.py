@@ -61,30 +61,23 @@ menu  = {
   'tea': 0,
   'unicorn Tears': 0,
 }
-# print(menu['pie'])
+print(menu['pie'])
 
-def order() :
-     order = input().lower() 
-     if order == "quit" :
-       print('thanks for your visit')
-       exit()
-     elif order in menu.keys() :
-          menu[order] +=1
-          print(f"** {menu[order] } order of {order.capitalize()} have been added to your meal **")
+total_items =[]
+
+def cust_order():
+    order = input(">").lower()
     
-          while order !='quit':
-            
-            order = input()
-            if order == "quit" :
-                print('thanks for your visit')
-                exit()
-            else :
-              
-              
-              menu[order] +=1
-              print(f"** {menu[order] } order of {order.capitalize()} have been added to your meal **")
-
-     else:
-        print('your order is not exisit please order from the menu')
+    
+    while order != 'quit' :
+        if order in menu :
+           menu[order]  += 1
+           print(f"** {menu[order] } order of {order.capitalize()} have been added to your meal **")
+           order=input(">")
+           
+        else :
+          print("your order is not in the menu")
+          order=input(">")
+          
+cust_order()
   
-order() 
